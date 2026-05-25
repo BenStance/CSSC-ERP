@@ -1,0 +1,447 @@
+{
+  "info": {
+    "_postman_id": "9f281ced-a3ac-4928-a9f5-9f7a9f9f25ad",
+    "name": "BC Portal Integration - CSSC",
+    "description": "Business Central custom API integration collection for Employee, Vendor, Dimension Value, and Budget APIs using Basic Auth.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "BENEDICT ACT",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "++R2b4LkX0+vbZvDpRKQYp/ME6qrMipodmHBVN/wTi0=",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:7948/BC290"
+    },
+    {
+      "key": "companyId",
+      "value": "5548E91E-C3DA-EF11-9344-6045BDE9B35F"
+    },
+    {
+      "key": "employeeSystemId",
+      "value": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "key": "vendorSystemId",
+      "value": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "key": "dimensionValueSystemId",
+      "value": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "key": "budgetSystemId",
+      "value": "00000000-0000-0000-0000-000000000000"
+    }
+  ],
+  "item": [
+    {
+      "name": "EmployeeAPI",
+      "item": [
+        {
+          "name": "POST Employee",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"employeeNo\": \"EMP001\",\n  \"employeeName\": \"John Mushi\",\n  \"address\": \"Dar es Salaam\",\n  \"phoneNo\": \"+255712345678\",\n  \"email\": \"john.mushi@company.co.tz\",\n  \"postingGroup\": \"EMP\",\n  \"blocked\": \" \"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/act/hr/v1.0/companies({{companyId}})/employees",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "act",
+                "hr",
+                "v1.0",
+                "companies({{companyId}})",
+                "employees"
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET Employees",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/act/hr/v1.0/companies({{companyId}})/employees",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "act",
+                "hr",
+                "v1.0",
+                "companies({{companyId}})",
+                "employees"
+              ]
+            }
+          }
+        },
+        {
+          "name": "PATCH Employee",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phoneNo\": \"+255700000000\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/act/hr/v1.0/companies({{companyId}})/employees({{employeeSystemId}})",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "act",
+                "hr",
+                "v1.0",
+                "companies({{companyId}})",
+                "employees({{employeeSystemId}})"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "VendorAPI",
+      "item": [
+        {
+          "name": "POST Vendor",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vendorNo\": \"VEND001\",\n  \"name\": \"ABC Supplies Ltd\",\n  \"address\": \"DSM Industrial Area\",\n  \"phoneNo\": \"+255755111222\",\n  \"email\": \"info@abc.co.tz\",\n  \"vendorPostingGroup\": \"LOCAL\",\n  \"blocked\": \" \"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/act/procurement/v1.0/companies({{companyId}})/vendors",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "act",
+                "procurement",
+                "v1.0",
+                "companies({{companyId}})",
+                "vendors"
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET Vendors",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/act/procurement/v1.0/companies({{companyId}})/vendors",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "act",
+                "procurement",
+                "v1.0",
+                "companies({{companyId}})",
+                "vendors"
+              ]
+            }
+          }
+        },
+        {
+          "name": "PATCH Vendor",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phoneNo\": \"+255700000001\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/act/procurement/v1.0/companies({{companyId}})/vendors({{vendorSystemId}})",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "act",
+                "procurement",
+                "v1.0",
+                "companies({{companyId}})",
+                "vendors({{vendorSystemId}})"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "DimensionValueAPI",
+      "item": [
+        {
+          "name": "POST Dimension Value",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dimensionCode\": \"DEPARTMENT\",\n  \"code\": \"IT\",\n  \"name\": \"Information Technology\",\n  \"blocked\": false\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/act/finance/v1.0/companies({{companyId}})/dimensionValues",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "act",
+                "finance",
+                "v1.0",
+                "companies({{companyId}})",
+                "dimensionValues"
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET Dimension Values",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/act/finance/v1.0/companies({{companyId}})/dimensionValues",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "act",
+                "finance",
+                "v1.0",
+                "companies({{companyId}})",
+                "dimensionValues"
+              ]
+            }
+          }
+        },
+        {
+          "name": "PATCH Dimension Value",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Information Tech\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/act/finance/v1.0/companies({{companyId}})/dimensionValues({{dimensionValueSystemId}})",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "act",
+                "finance",
+                "v1.0",
+                "companies({{companyId}})",
+                "dimensionValues({{dimensionValueSystemId}})"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "BudgetAPI",
+      "item": [
+        {
+          "name": "POST Budget",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"budgetName\": \"FY2026\",\n  \"glAccountNo\": \"6000\",\n  \"date\": \"2026-01-01\",\n  \"amount\": 2500000,\n  \"dimension1\": \"IT\",\n  \"dimension2\": \"DSM\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/act/finance/v1.0/companies({{companyId}})/budgets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "act",
+                "finance",
+                "v1.0",
+                "companies({{companyId}})",
+                "budgets"
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET Budgets",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/act/finance/v1.0/companies({{companyId}})/budgets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "act",
+                "finance",
+                "v1.0",
+                "companies({{companyId}})",
+                "budgets"
+              ]
+            }
+          }
+        },
+        {
+          "name": "PATCH Budget",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 2750000\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/act/finance/v1.0/companies({{companyId}})/budgets({{budgetSystemId}})",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "act",
+                "finance",
+                "v1.0",
+                "companies({{companyId}})",
+                "budgets({{budgetSystemId}})"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
